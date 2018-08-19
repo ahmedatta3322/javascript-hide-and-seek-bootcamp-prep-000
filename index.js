@@ -8,15 +8,14 @@ function deepestChild(){
   var x = document.getElementById('grand-node').querySelectorAll('div')
   return x[x.length-1]
 }
-function increaseRankBy(n){
-  let x = document.getElementsByClassName('ranked-list')
-  let y = []
-  let z = []
-  for (var i = 0 ; i < x.length ; i++){
-    y = x[i]
-    for(var c = 0 ; c < y.length ; c++){
-      z = y.pop()
+function increaseRankBy(n) {
+  const rankedLists = document.querySelectorAll('.ranked-list');
+
+  for (let i = 0, l = rankedLists.length; i < l; i++) {
+    let children = rankedLists[i].children;
+
+    for (let j = 0, k = children.length; j < k; j++) {
+      children[j].innerHTML = parseInt(children[j].innerHTML) + n;
     }
   }
-  return z
 }
